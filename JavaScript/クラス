@@ -1,0 +1,21 @@
+## クラスの定義
+
+``` JavaScript
+<script>
+  // Itemクラスを定義
+  class Item { 
+       //コンストラクターを定義する クラスが呼び出された時に実行する処理
+       constructor(price) {
+                //  プロパティーを定義する
+                this.price = price
+                }
+        // 消費税を取得するメソッド
+        getTax() {
+           　return this.price * (10 / 100)
+        }
+   } 
+   
+   let item = new Item(500)
+   document.write(item.getTax())
+</script>
+```
