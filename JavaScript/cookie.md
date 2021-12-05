@@ -75,3 +75,35 @@ document.cookie = 'date1=123'
    document.getElementById('email').value = getCookie('email');
 </script> 
 ```
+
+
+## ローカルストレージ
+
+### ローカルストレージとは  
+cookieよりも手軽に使うことができる
+  
+ただし、使えるのはHTML5以降となるので、比較的新しいWEBブラウザでないと使うことができない。  
+そのためメールアドレスを保存する程度の簡単なものであれば、cookieが使われることが多い  
+
+- localStrageはcookieで言うところの有効期限を無期限に設定したようなもの
+- sessionStorageはcookieを有効期限なしで保存したようなもの、ブラウザを閉じると消える
+
+<例>  
+```html
+<div>
+  <input type="text" id="email" name="email">
+</div>
+<button type="save">メールアドレスを保存する</button>
+
+<script>
+  document.getElementById("save").addEventListener('click', function() {
+      
+      // setItemでパラメータと内容を指定すれば、その内容で保存
+      localStorage.setItem('email', document.getElementById('email').value);
+  });
+  
+                                            // getItemで保存した値を取得
+  document.getElementById('email').value = localStorage.getItem('email');
+</script>
+```
+  
