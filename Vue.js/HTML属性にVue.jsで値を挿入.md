@@ -2,7 +2,7 @@
 
 <例>
 
-```htnl
+```html
 <style>
         .error {
             color: red;
@@ -32,4 +32,3 @@
         })
      </script>
 ```
-属性にVue
