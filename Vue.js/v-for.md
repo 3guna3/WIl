@@ -19,3 +19,26 @@
 ```
 
 `v-for`と使うときは`:key`もセットで使うこと！
+
+
+## v-forディレクティブで配列を制御
+
+### <例>曜日を出力する
+```html
+<div id="app">
+  <!--weeksというscriptタグ内で定義した配列の中身をweekに1つ１つ入れていく-->
+  <ul v-for="week of weeks" :key "week">
+    <li>{{ week }}</li>
+  </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue ({
+      el: "#app",
+      data: {
+        weeks: ['日', '月', '火', '水', '木', '金', '土'],
+      }
+  })
+</script>
+
+```
