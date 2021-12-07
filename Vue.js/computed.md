@@ -58,3 +58,37 @@
   })
 </script>
 ```
+
+### v-ifで処理を分ける
+
+**num1とnum2に値が入っていない時にはanswerを表示させないようにする。**
+
+```html
+<div id="app">
+  <input type="number" name="num1" v-model.number="num1" /> +
+  <input type="number" name="num2" v-model.number="num2" /> =
+  <!--computedでdoneを設定、num1とnum2に値が入った時だけtrueとなり回答が表示されるようにする
+  <span v-if="done">{{ answer }}</span>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue ({
+      el: "#app",
+      data: {
+        num1: 0,
+        num2: 0,
+      },
+      // computedはdataと同じように宣言して、その内容をプログラムとして書くことができるという違いがある
+      computed: {
+          // answerを呼び出すだけでthis.num1 + this.num2の結果を返すことができる
+          answer: function() {
+               return this.num1 + this.num2
+          },
+          // doneを設定
+          done: function() {
+               return this.num1 !== 0 && this.num2 !== 0
+          },
+      },
+  })
+</script>
+```
