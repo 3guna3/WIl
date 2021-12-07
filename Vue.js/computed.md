@@ -67,7 +67,7 @@
 <div id="app">
   <input type="number" name="num1" v-model.number="num1" /> +
   <input type="number" name="num2" v-model.number="num2" /> =
-  <!--computedでdoneを設定、num1とnum2に値が入った時だけtrueとなり回答が表示されるようにする
+  <!--computedでdoneを設定、num1とnum2に値が入った時だけtrueとなり回答が表示されるようにする-->
   <span v-if="done">{{ answer }}</span>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
