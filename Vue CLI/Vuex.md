@@ -62,3 +62,17 @@ const actions = {
   actions
  };
 ```
+「state」 「getters」 「mutations」　「actions」　の4つが必要
+
+- state
+  - 状態を管理するデータを定義する
+- getters 
+  - stateの値を取り出す関数を定義する
+- mutations
+  - eventsデータをstateに保存する関数を定義する
+- actions
+  - axiosでAPIリクエストを送信してデータを取得し、mutationsを呼び出す関数を定義する
+
+
+「state」 「getters」 「mutations」　「actions」　の4つが必要dエータを定義する
+「state」 「getters」 「mutations」　「actions」　の4つが必要
