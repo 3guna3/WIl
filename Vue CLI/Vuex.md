@@ -73,6 +73,52 @@ const actions = {
 - actions
   - axiosでAPIリクエストを送信してデータを取得し、mutationsを呼び出す関数を定義する
 
+その後に`store/index.js`を編集
 
-「state」 「getters」 「mutations」　「actions」　の4つが必要dエータを定義する
-「state」 「getters」 「mutations」　「actions」　の4つが必要
+```js
+import Vue from 'vue';
+import Vuex from 'vuex';
+//　ここを追加
+import hoges from './modules/hoges';
+
+Vue.user(Vuex);
+
+export default new Vuex.Store({
+  // 以下を追加
+  modules: {
+    hoges
+  }
+});
+```
+
+`Vuex.Stoew`の中の`modules`に、`hoges.js`でexportしたものを入れることで、hogesストアが利用可能になる。
+このストアを使うようにコンポーネントも書き換える。
+
+### コンポーネントの書き換え
+
+Vuexには`mapGetters`、`mapActions`という便利な関数があり。ストア名と関数名を指定することでそれらを使用できるようになる。
+なお、`mapGetters`はcomputed、`mapActions`はmethodsで呼び出す。
+
+```vue
+<template>
+  省略
+</template>
+
+<script>
+  import { mapGetters, mapActions } from 'vuex';
+  import HogeDetails from './HogeDetails.vue';
+  
+  export default {
+    name: 'Hoge',
+    components: {
+      HogeDetails,
+    },
+    computed: {
+      ...mapGetters('hoges', ['hoges']),
+    },
+    methods: {
+      ...mapActions('hoges', ['fetchHoges']）
+    },
+  };
+</script>    
+```
