@@ -10,3 +10,12 @@
   
 - ボタン
   - `<button>`の代わりに`<v-btn>`を使う
+
+- **v-card**
+  - `<v-card-title>`
+  - `<v-card-subtitle>`
+  - `<v-card-text>`
+  - `<v-card-actions>`
+
+
+  上記の4つのコンポーネントがある
