@@ -16,3 +16,19 @@ if (!$link) {
   exit;
 }
 ```
+
+## PHPからMySQLにデータを追加する
+
+**SQLのINSERT文でテーブルにデータを追加する**
+
+- INSERT文を使うと、テーブルに１行のデータを挿入する
+  - $link : mysqli_connect()が返すリンクID
+  - $query : SQL分の文字列  
+`mysqli_query($link, $query)`
+
+- companiesテーブルにデータを登録するなら
+```
+$link = mysqli_connect('my-host', 'my-user', 'my-password', 'my-db' );
+$sql = "INSERT INTO companies(name) VALUES ('SmartHR inc')";
+mysqli_query($link, $sql);
+```
