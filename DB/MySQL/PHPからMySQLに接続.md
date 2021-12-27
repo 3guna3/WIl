@@ -32,3 +32,31 @@ $link = mysqli_connect('my-host', 'my-user', 'my-password', 'my-db' );
 $sql = "INSERT INTO companies(name) VALUES ('SmartHR inc')";
 mysqli_query($link, $sql);
 ```
+
+### SQL文実行時にエラーがあった場合、エラ〜メッセージを表示する
+- mysql_query()は実行に失敗した場合、FALSEを返すことを利用してエラーメッセージを表示させる
+```php
+$link = mysqli_connect('my-host', 'my-user', 'my-password', 'my-db' );
+$sql = "INSERT INTO companies(name) VALUES ('SmartHR inc')";
+$result = mysql_query($link, $sql);
+
+if (result) {
+  echo 'データを追加しました'. PHP_EOL;
+} else {
+    echo 'Error: データの追加に失敗しました'. PHP_EOL;
+    echo 'Debugging error:'. mysqli_error($link). PHP_EOL;
+}
+```
+
+### ヒアドキュメントを使うことで複数行にまたがる文字列を表記できる
+- ヒアドキュメントを使うと、複数行の文字列をそのままコード内に記載できるので、SQLを書くときに見やすくなり便利
+```sql
+$sql = <<<EOT
+INSERT INTO companies (
+  name
+) VALUES (
+  'SmartHR inc'
+)
+EOT;
+```
+
