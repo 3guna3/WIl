@@ -1,0 +1,4 @@
+**mysqli_query**
+- データベース上でクエリを実行する
+- 成功したらmysqli_resultオブジェクトを返す  
+`mysqli_query($link, $query)`
